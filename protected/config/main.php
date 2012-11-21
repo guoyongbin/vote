@@ -1,5 +1,6 @@
 <?php
-
+$dirname = dirname(__FILE__);
+include $dirname.'/alias.php';
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 
@@ -52,7 +53,7 @@ return array(
 			),
 		),*/
 		'enum' => array(
-			'class' => 'application.components.CEnumer',
+			'class' => 'lib.components.CEnumer',
 			'lang' => 'zh_cn',
 		),
 		'db'=>array(
@@ -67,7 +68,7 @@ return array(
 //	        'connectionString' => 'mongodb://root:123456@103.29.135.92',
 //	        'dbName'           => 'hems',
 			'connectionString' => 'mongodb://localhost',
-	        'dbName'           => 'local',
+	        'dbName'           => 'vote',
 	        'fsyncFlag'        => true,
 	        'safeFlag'         => true,
 	        'useCursor'        => false
