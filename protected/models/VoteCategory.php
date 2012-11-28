@@ -1,6 +1,6 @@
 <?php
 
-class VoteCate1gory extends CMonoActiveRecord {
+class VoteCategory extends CMonoActiveRecord {
 	
 	public $category_name;
 	public $parent_id;
@@ -16,16 +16,16 @@ class VoteCate1gory extends CMonoActiveRecord {
 	public function rules() {
 	
 		return array(
-				array('category_name', 'length', 'max'=>50),
-				array('parent_id', 'length', 'max'=>50),
+				array('category_name', 'length', 'max'=>255),
+				array('parent_id', 'length', 'max'=>11),
 				array('category_name, parent_id', 'safe'),
 		);
 	}
 	
 	public function attributeLabels() {
 		return array(
-				'category_name' => 'categoryName',
-				'parent_id' => 'parentId',
+				'category_name' => '分类名称',
+				'parent_id' => '父id',
 		);
 	}
 }

@@ -16,16 +16,16 @@ class VoteCateRelated extends CMonoActiveRecord {
 	public function rules() {
 		return array(
 	
-				array('vote_id', 'length', 'max'=>50),
-				array('category_id', 'length', 'max'=>50),
+				array('vote_id', 'length', 'max'=>64),
+				array('category_id', 'length', 'max'=>64),
 				array('vote_id, category_id', 'safe'),
 		);
 	}
 	
 	public function attributeLabels() {
 		return array(
-				'vote_id' => 'voteId',
-				'category_id' => 'categoryId',
+				'vote_id' => '投票id',
+				'category_id' => '分类id',
 		);
 	}
 }
