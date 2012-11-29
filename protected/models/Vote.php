@@ -40,8 +40,8 @@ class Vote extends CMonoActiveRecord{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('md5, title,picpath','length,creater_email','max'=>125),
-			array('vote_type, creater_id, creater_nickname, audit_type, audit_state','type','int'),
+			array('md5, title, picpath, creater_email','length','max'=>125),
+			array('vote_type, creater_id, creater_nickname, audit_type, audit_state','numerical'),
 			array('keyword','length','max'=>64),
 			array('audit_name','length','max'=>255),
 			// The following rule is used by search().
