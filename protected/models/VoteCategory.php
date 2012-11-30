@@ -16,7 +16,7 @@ class VoteCategory extends CMonoActiveRecord {
 	public function rules() {
 	
 		return array(
-				array('category_name','required'),
+// 				array('category_name','required'),
 				array('category_name', 'length', 'max'=>255),
 				array('parent_id', 'length', 'max'=>11),
 				array('category_name, parent_id', 'safe'),
