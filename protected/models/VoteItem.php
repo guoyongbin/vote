@@ -24,10 +24,10 @@ class VoteItem extends CMonoActiveRecord{
 	
 	public function attritbuteLabels(){
 		return array(
-				'vote_id'=>'ͶƱid',
-				'item_title'=>'����',
-				'item_vote_count'=>'ͶƱ��',
-				'displayorder'=>'��ʾ˳��',
+				'vote_id'=>'投票id',
+				'item_title'=>'标题',
+				'item_vote_count'=>'投票数',
+				'displayorder'=>'显示顺序',
 				);
 		
 	}

@@ -18,18 +18,18 @@ class VoteOperateLog extends CMonoActiveRecord{
 	
 	public function rules(){
 		return array(
-				array('opt_type, opt_time,opt_name, vote_id','safe')£¬
+				array('opt_type, opt_time,opt_name, vote_id','safe')ï¼Œ
 		);
 	}
 	
 	public function attributeLabels(){
 	
 		return array(
-				'opt_type'=>'ÀàĞÍ',
-				'opt_time'=>'Ñ¡ÔñÊ±¼ä',
-				'opt_name'=>'Ñ¡ÔñÃû³Æ',
-				'opt_content'=>'Ñ¡ÔñÄÚÈİ',
-				'vote_id'=>'Í¶Æ±id',
+				'opt_type'=>'ç±»å‹',
+				'opt_time'=>'é€‰æ‹©æ—¶é—´',
+				'opt_name'=>'é€‰æ‹©åç§°',
+				'opt_content'=>'é€‰æ‹©å†…å®¹',
+				'vote_id'=>'æŠ•ç¥¨id',
 	
 		);
 	}

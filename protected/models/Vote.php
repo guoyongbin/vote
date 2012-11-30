@@ -14,6 +14,7 @@ class Vote extends CMonoActiveRecord{
 	public $audit_date;
 	public $audit_state;
 	public $md5;
+	public $verifyCode;
 	
 	/**
 	 * Returns the static model of the specified AR class.
@@ -41,9 +42,11 @@ class Vote extends CMonoActiveRecord{
 		// will receive user inputs.
 		return array(
 			array('md5, title, picpath, creater_email','length','max'=>125),
+			array('title,vote_type , creater_email','required'),
 			array('vote_type, creater_id, creater_nickname, audit_type, audit_state','numerical'),
 			array('keyword','length','max'=>64),
 			array('audit_name','length','max'=>255),
+			array('verifyCode','captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('md5, audit_state, audit_date, audit_name, audit_type, vote_end_time, create_time, keyword, creater_email	, creater_nickname, creater_id, vote_type, picpath, title', 'safe'),
