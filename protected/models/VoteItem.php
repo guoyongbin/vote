@@ -16,15 +16,15 @@ class VoteItem extends CMonoActiveRecord{
 	
 	public function rules(){
 		return array(
+					array('item_title','length','min'=>1,'max'=>25,'tooShort'=>'每项限25字','tooLong'=>'每项限25字'),
 					array('vote_id,item_title,item_vote_count,displayorder','safe'),
-				
 				);
-		
 	}
 	
 	public function attritbuteLabels(){
 		return array(
 				'vote_id'=>'投票id',
+				'item_title'=>'投票答案项',
 				'item_title'=>'标题',
 				'item_vote_count'=>'投票数',
 				'displayorder'=>'显示顺序',
