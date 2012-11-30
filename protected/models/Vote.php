@@ -37,17 +37,39 @@ class Vote extends CMonoActiveRecord{
 	 */
 	public function rules()
 	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
 		return array(
-			array('md5, title, picpath, creater_email','length','max'=>125),
-			array('vote_type, creater_id, creater_nickname, audit_type, audit_state','numerical'),
+			array('title,vote_end_time', 'required'),
+			array('title','length','min'=>1,'max'=>14,'tooShort'=>'限14字 不得为空','tooLong'=>'限14字 不得为空'),
+			
+			array('picpath', 'authenticate'),
+				
+			array('creater_email','length','min'=>1,'max'=>100,'tooShort'=>'限100个字符','tooLong'=>'限100个字符'),
+			array('creater_email','email','message'=>'邮箱输入有误.'),
+				
+			array('md5,picpath','length','max'=>125),
+			array('creater_id,audit_type,audit_state','numerical'),
 			array('keyword','length','max'=>64),
 			array('audit_name','length','max'=>255),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
+				
 			array('md5, audit_state, audit_date, audit_name, audit_type, vote_end_time, create_time, keyword, creater_email	, creater_nickname, creater_id, vote_type, picpath, title', 'safe'),
 		);
+	}
+	
+	public function authenticate($attribute,$params) {
+		if(!$this->hasErrors())
+		{
+			$postfix = strstr($this->picpath, '.');
+			$arr = array( '.jpg','.jpeg','.gif','.png' );
+			if( !in_array($postfix, $arr) ) {
+				$this->addError('picpath','仅支持.jpg /.jpeg /.gif /.png格式');
+			} 
+			
+			$content = file_get_contents(dirname(__FILE__)."/../../upload/".substr($this->picpath, 8));
+			$strlength = strlen($content);
+			if($strlength > 2000000) {
+				$this->addError('picpath','图片大小不超过2M');
+			}
+		}
 	}
 	
 	/**
